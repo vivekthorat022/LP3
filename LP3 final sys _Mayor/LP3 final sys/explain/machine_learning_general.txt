@@ -1,0 +1,57 @@
+Sure! Here's a simpler explanation for each term:
+
+**Bias**: The error from using too simple a model that can’t capture the patterns in the data.  
+**Variance**: The error from using a very complex model that fits the noise in the data.  
+**Generalization**: How well a model performs on new, unseen data.  
+**Underfitting**: When a model is too simple and doesn’t capture important patterns.  
+**Overfitting**: When a model is too complex and fits the noise in the data, not the real patterns.  
+**Linear Regression**: A method to predict a number by drawing a straight line through the data.  
+**Lasso Regression**: A type of linear regression that adds a penalty to prevent overfitting.  
+**Ridge Regression**: A type of linear regression that adds a penalty to reduce model complexity.  
+**Gradient Descent**: A method to find the best model by adjusting parameters step by step.  
+
+**Evaluation Metrics**:  
+**MAE (Mean Absolute Error)**: The average of the absolute differences between predicted and actual values.  
+**RMSE (Root Mean Squared Error)**: A measure that gives more weight to larger errors, showing how far off predictions are.  
+**R² (R-squared)**: How well the model explains the data's variability.
+
+**Supervised Learning - Classification**: A type of learning where the model predicts categories or labels.  
+**K-Nearest Neighbor (K-NN)**: A method that classifies based on the majority label of nearby data points.  
+**Support Vector Machine (SVM)**: A method that separates categories with the best possible line or boundary.  
+
+**Ensemble Learning**:  
+**Bagging**: Combining predictions from multiple models to reduce errors.  
+**Boosting**: Building models one by one, each trying to fix the mistakes of the previous one.  
+**Random Forest**: A method that builds many decision trees and combines their results.  
+**AdaBoost**: A type of boosting that focuses on the mistakes made by previous models.
+
+**Binary vs Multiclass Classification**:  
+**Binary Classification**: A classification problem with two possible outcomes.  
+**Multiclass Classification**: A classification problem with more than two possible outcomes.  
+**One-vs-One (OvO)**: A method where each pair of classes is handled separately.  
+**One-vs-All (OvA)**: A method where each class is compared to all the others.
+
+**Evaluation Metrics for Classification**:  
+**Accuracy**: The percentage of correct predictions.  
+**Precision**: The percentage of true positive predictions among all predicted positives.  
+**Recall**: The percentage of true positives identified out of all actual positives.  
+**F1-Score**: A balance between precision and recall.  
+**Cross-validation**: A way to test a model by splitting data into multiple parts.  
+**Micro-Average**: A method to calculate metrics by considering all classes together.  
+**Macro-Average**: A method to calculate metrics for each class separately, then average.
+
+**Unsupervised Learning**:  
+**K-Means**: A method that groups data into clusters by finding similar points.  
+**K-Medoids**: Similar to K-means but uses actual data points as the center of clusters.  
+**Hierarchical Clustering**: A method that builds a tree of clusters based on similarity.  
+**DBSCAN**: A method that groups points that are close to each other and marks others as outliers.  
+**Spectral Clustering**: A method that uses the connections between data points to form clusters.
+
+**Outlier Analysis**:  
+**Isolation Forest**: A method for finding outliers by isolating them from the rest of the data.  
+**Local Outlier Factor (LOF)**: A method that compares the density of a point to its neighbors to detect outliers.
+
+**Evaluation Metrics for Clustering**:  
+**Elbow Method**: A way to find the best number of clusters by looking for a sharp drop in error.  
+**Extrinsic Methods**: Measuring clustering by comparing it to known labels.  
+**Intrinsic Methods**: Measuring clustering based on how well the clusters fit the data.

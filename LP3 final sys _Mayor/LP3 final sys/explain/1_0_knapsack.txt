@@ -1,0 +1,93 @@
+The **0/1 Knapsack Problem** and the **Fractional Knapsack Problem** are both related to the same type of problem, but with a key difference in how you handle the items in the knapsack.
+
+### 1. **0/1 Knapsack Problem**:
+   - **0/1** refers to the fact that each item can either be **included (1)** in the knapsack or **excluded (0)**. 
+   - You cannot take a fraction of an item. The item must either be taken whole or left behind.
+   - The goal is to maximize the total value of the items in the knapsack without exceeding the knapsack's weight capacity.
+   
+   ### Example:
+   - Given items with weights and values:
+     - Weights: [10, 20, 30]
+     - Values: [60, 100, 120]
+     - Knapsack capacity: 50
+     
+     In this case, you must decide whether to include the entire item or exclude it. You can’t take a fraction of any item.
+
+     You would solve it using **dynamic programming** or **backtracking** to determine which combination of items gives you the maximum value without exceeding the capacity.
+
+---
+
+### 2. **Fractional Knapsack Problem**:
+   - In the **Fractional Knapsack** problem, you are **allowed to take fractions** of an item, not just the whole item.
+   - The goal remains the same: maximize the total value, but now you can take as much or as little of an item as you want, as long as it fits in the knapsack.
+   - The **Greedy algorithm** is the most efficient way to solve the fractional knapsack problem. The approach is to take items with the **highest value-to-weight ratio** first, and if the item can't be fully taken, take as much of it as possible.
+
+   ### Example:
+   - Given the same items as the 0/1 knapsack problem:
+     - Weights: [10, 20, 30]
+     - Values: [60, 100, 120]
+     - Knapsack capacity: 50
+     
+     Here, you can take fractions of the items. For instance, if you can’t fit the entire item (e.g., item with weight 30), you can take a portion of it that fits in the remaining capacity.
+
+     You would solve this using a **greedy algorithm** by sorting the items based on their value-to-weight ratio and taking items starting from the one with the highest ratio.
+
+---
+
+### Key Differences:
+
+| **Feature**                | **0/1 Knapsack Problem**                | **Fractional Knapsack Problem**          |
+|----------------------------|-----------------------------------------|------------------------------------------|
+| **Item Selection**          | Can only take the whole item (1 or 0)   | Can take a fraction of an item          |
+| **Approach**                | Dynamic Programming (DP), Backtracking  | Greedy Approach                         |
+| **Time Complexity**         | O(n * W) (where W is the capacity)      | O(n log n) (for sorting items by ratio) |
+| **Optimal Strategy**        | Find the combination of items that maximizes value without exceeding capacity | Take items with the highest value-to-weight ratio first |
+
+---
+
+### **Example Comparison**:
+
+#### 0/1 Knapsack Problem Example:
+You have items with weights and values:
+- Item 1: weight = 10, value = 60
+- Item 2: weight = 20, value = 100
+- Item 3: weight = 30, value = 120
+
+Knapsack capacity = 50.
+
+- In the 0/1 knapsack problem, you must decide whether to include or exclude each item entirely. 
+- Possible optimal solution (using DP):
+  - Take Item 2 (weight 20, value 100)
+  - Take Item 3 (weight 30, value 120)
+  - Total weight = 50, total value = 220.
+
+#### Fractional Knapsack Problem Example:
+You have the same items:
+- Item 1: weight = 10, value = 60
+- Item 2: weight = 20, value = 100
+- Item 3: weight = 30, value = 120
+
+Knapsack capacity = 50.
+
+- In the fractional knapsack problem, you are allowed to take fractions of the items.
+- You would calculate the value-to-weight ratio for each item:
+  - Item 1: \( \frac{60}{10} = 6 \)
+  - Item 2: \( \frac{100}{20} = 5 \)
+  - Item 3: \( \frac{120}{30} = 4 \)
+
+- Sort by value-to-weight ratio: [Item 1 (6), Item 2 (5), Item 3 (4)].
+- First, take Item 1 fully (weight 10, value 60), remaining capacity = 40.
+- Then, take Item 2 fully (weight 20, value 100), remaining capacity = 20.
+- Finally, take \( \frac{2}{3} \) of Item 3 (weight 20 out of 30, value \( \frac{2}{3} \times 120 = 80 \)).
+
+- Total value = 60 + 100 + 80 = **240**.
+
+#### In this case, the **Fractional Knapsack** gives a higher value (240) compared to the **0/1 Knapsack** solution (220).
+
+---
+
+### Summary:
+- **0/1 Knapsack**: You either take the whole item or leave it behind (no fractions). You use dynamic programming or backtracking to find the optimal solution.
+- **Fractional Knapsack**: You can take fractions of items, and you typically solve it using a greedy algorithm, taking items with the highest value-to-weight ratio first.
+
+The **Fractional Knapsack** problem is usually easier to solve because you can break items into fractions, whereas the **0/1 Knapsack** requires you to decide whether to take the item as a whole or not.

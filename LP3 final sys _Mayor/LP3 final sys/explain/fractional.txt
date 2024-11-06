@@ -1,0 +1,86 @@
+The **Fractional Knapsack Problem** is a variation of the classic **Knapsack Problem** where you are allowed to take fractional parts of the items, rather than forcing you to take the whole item or none. The goal is to maximize the total value of the items that can be carried in a knapsack with limited capacity.
+
+### Problem Breakdown:
+
+Given:
+- A set of items, each with a **weight** and **value**.
+- A knapsack with a **capacity** limit (maximum weight it can carry).
+
+Your task is to select items (or fractions of items) such that:
+1. The total weight does not exceed the knapsack's capacity.
+2. The total value of the selected items is maximized.
+
+### Greedy Strategy for the Fractional Knapsack:
+
+In the fractional version, we can choose a fraction of any item if the whole item does not fit in the knapsack. The **greedy approach** works by selecting items based on the **value-to-weight ratio** (value/weight). Items with a higher ratio are more valuable for their weight and are chosen first.
+
+### Steps of the Algorithm:
+
+1. **Compute Value-to-Weight Ratios**: For each item, calculate the ratio of its value to weight. This tells us how much value we get per unit of weight for each item.
+   
+   Formula:
+   \[
+   \text{Value-to-weight ratio} = \frac{\text{value of item}}{\text{weight of item}}
+   \]
+
+2. **Sort Items by Value-to-Weight Ratio**: Sort the items in decreasing order of their value-to-weight ratio. This means the item that provides the most value for its weight comes first.
+
+3. **Select Items**:
+   - Start by taking the whole item if it fits in the remaining capacity of the knapsack.
+   - If an item is too large to fit entirely, take as much as possible of it (i.e., a fraction of it).
+   - Once the knapsack reaches its full capacity, stop.
+
+4. **Maximize the Value**: The objective is to maximize the total value of the selected items, either whole or fractional.
+
+### Example Walkthrough:
+
+Given:
+- **Items** with `weights = [10, 40, 20, 30]` and `values = [60, 40, 100, 120]`.
+- **Capacity of the knapsack** = 50.
+
+#### Step 1: Calculate the Value-to-Weight Ratios
+- Item 1: \( \frac{60}{10} = 6 \) (Value per unit weight)
+- Item 2: \( \frac{40}{40} = 1 \)
+- Item 3: \( \frac{100}{20} = 5 \)
+- Item 4: \( \frac{120}{30} = 4 \)
+
+#### Step 2: Sort Items by Value-to-Weight Ratio
+The sorted order of items based on the value-to-weight ratio is:
+- Item 1 (ratio 6)
+- Item 3 (ratio 5)
+- Item 4 (ratio 4)
+- Item 2 (ratio 1)
+
+#### Step 3: Select Items to Maximize Value
+
+- Start with the first item (Item 1, ratio 6):  
+  - It weighs 10 and has a value of 60.
+  - Since the knapsack has a capacity of 50, we take the whole Item 1.
+  - New capacity = 50 - 10 = 40.
+  - Total value = 60.
+
+- Next, take Item 3 (ratio 5):  
+  - It weighs 20 and has a value of 100.
+  - The remaining capacity is 40, so we can take the whole Item 3.
+  - New capacity = 40 - 20 = 20.
+  - Total value = 60 + 100 = 160.
+
+- Next, take Item 4 (ratio 4):  
+  - It weighs 30, but we only have 20 capacity left.
+  - So, we take a fraction of Item 4: \( \frac{20}{30} \) of the item.
+  - Fractional value taken = \( \frac{20}{30} \times 120 = 80 \).
+  - Total value = 160 + 80 = 240.
+  - Now, the knapsack is full.
+
+#### Final Result:
+- The total value that can be carried in the knapsack is **240**.
+
+### Summary:
+The greedy method works by sorting items based on the value-to-weight ratio and greedily picking items (whole or fractional) until the knapsack's capacity is full. In this case, the total value of 240 is the maximum value we can achieve for the knapsack with a capacity of 50.
+
+### Key Points:
+- In the **Fractional Knapsack** problem, you are allowed to take fractions of items, which is why a greedy approach works well.
+- The **value-to-weight ratio** is the key to making optimal choices in this problem.
+- This problem can be solved in **O(n log n)** time due to the sorting step, where **n** is the number of items.
+
+The greedy method gives an optimal solution for the fractional version of the Knapsack problem, unlike the **0/1 Knapsack** problem, where a dynamic programming approach is generally used.
